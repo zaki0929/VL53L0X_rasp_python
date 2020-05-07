@@ -47,12 +47,13 @@ if __name__ == "__main__":
 
     client = udp_client.SimpleUDPClient(args.ip, args.port)
     
-    while (1):
-        distance = tof.get_distance()
-        if (distance > 0):
-            print ("%d mm, %d cm" % (distance, distance/10))
-            client.send_message("/distance", distance)
-    
-        time.sleep(timing/1000000.00)
-    
-    tof.stop_ranging()
+    try:
+        while (1):
+            distance = tof.get_distance()
+            if (distance > 0):
+                print ("%d mm, %d cm" % (distance, distance/10))
+                client.send_message("/distance", distance)
+        
+            time.sleep(0.5)
+    except KeyboardInterrupt:
+        tof.stop_ranging()
