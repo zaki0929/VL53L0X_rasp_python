@@ -7,3 +7,4 @@ obj/vl53l0x_api_strings.o
 obj/vl53l0x_platform.o
 obj/vl53l0x_python.o
 python/VL53L0X.pyc
+python/__pycache__
