@@ -49,7 +49,7 @@ sudo apt-get install build-essential python-dev
 Then use following commands to clone the repository and compile:
 ```bash
 cd your_git_directory
-git clone https://github.com/johnbryanmoore/VL53L0X_rasp_python.git
+git clone https://github.com/zaki0929/VL53L0X_rasp_python.git
 cd VL53L0X_rasp_python
 make
 ```
