@@ -54,6 +54,11 @@ cd VL53L0X_rasp_python
 make
 ```
 
+If you want to run VL53L0X_osc.py, install python-osc by using the following commands.
+```bash
+pip3 install python-osc
+```
+
 * In the Python directory are the following python files:
 
 VL53L0X.py - This contains the python ctypes interface to the ST Library
