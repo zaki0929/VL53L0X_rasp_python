@@ -43,6 +43,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--ip", default="127.0.0.1", help="The ip of the OSC server")
     parser.add_argument("--port", type=int, default=5005, help="The port the OSC server is listening on")
+    parser.add_argument("--address", default="/distance", help="The address of the OSC server")
     args = parser.parse_args()
 
     client = udp_client.SimpleUDPClient(args.ip, args.port)
@@ -53,7 +54,7 @@ if __name__ == "__main__":
             if (distance > 0):
                 print ("%d mm, %d cm" % (distance, distance/10))
                 time.sleep(0.01)
-                client.send_message("/distance", distance)
+                client.send_message(args.address, distance)
 
             time.sleep(0.1)
     except KeyboardInterrupt:
