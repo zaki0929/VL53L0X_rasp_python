@@ -103,6 +103,10 @@ class VL53L0X(object):
         """Get distance from VL53L0X ToF Sensor"""
         return tof_lib.getDistance(self.my_object_number)
 
+    def get_range_status(self):
+        """Get range status from VL53L0X ToF Sensor"""
+        return tof_lib.getRangeStatus(self.my_object_number)
+
     # This function included to show how to access the ST library directly
     # from python instead of through the simplified interface
     def get_timing(self):
