@@ -1,0 +1,11 @@
+Metadata-Version: 1.1
+Name: VL53L0X-rasp-python
+Version: 0.0.1
+Summary: Python interface to the VL53L0X ST Library
+Home-page: UNKNOWN
+Author: John Bryan Moore, Ryo Okazaki
+Author-email: UNKNOWN
+License: MIT
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning

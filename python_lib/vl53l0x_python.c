@@ -539,3 +539,45 @@ VL53L0X_DEV getDev(int object_number)
     return Dev;
 }
 
+/******************************************************************************
+ * @brief   Get range status
+ * @return  Range status
+ *****************************************************************************/
+int32_t getRangeStatus(int object_number)
+{
+    VL53L0X_Error Status = VL53L0X_ERROR_NONE;
+    int32_t range_status = -1;
+
+    if (object_number < MAX_DEVICES)
+    {
+        if (pMyDevice[object_number] != NULL)
+        {
+            Status = WaitMeasurementDataReady(pMyDevice[object_number]);
+
+            if(Status == VL53L0X_ERROR_NONE)
+            {
+                Status = VL53L0X_GetRangingMeasurementData(pMyDevice[object_number],
+                                    pRangingMeasurementData);
+                if(Status == VL53L0X_ERROR_NONE)
+                {
+                    range_status = pRangingMeasurementData->RangeStatus;
+                }
+
+                // Clear the interrupt
+                VL53L0X_ClearInterruptMask(pMyDevice[object_number],
+                                    VL53L0X_REG_SYSTEM_INTERRUPT_GPIO_NEW_SAMPLE_READY);
+                // VL53L0X_PollingDelay(pMyDevice[object_number]);
+            }
+        }
+        else
+        {
+            printf("Object %d not initialized\n", object_number);
+        }
+    }
+    else
+    {
+        printf("Invalid object number %d specified\n", object_number);
+    }
+
+    return range_status;
+}
